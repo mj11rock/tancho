@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+        <title>Tanho</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,600,800&display=swap&subset=cyrillic" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=PT+Sans:400,700&display=swap&subset=cyrillic" rel="stylesheet">
+        <link rel="shortcut icon" href="./img/favicon.ico" type="image/x-icon">
+        <link rel="icon" href="./img/favicon.ico" type="image/x-icon">
+        <link rel="apple-touch-icon" href="apple-touch-icon.png">
+        <link rel="stylesheet" href="css/bootstrap.min.css"> 
+        <link rel="stylesheet" href="css/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="css/fontAwesome.css">
+        <link rel="stylesheet" href="owlcarousel/owl.carousel.min.css">
+        <link rel="stylesheet" href="owlcarousel/owl.theme.default.min.css">        <link rel="stylesheet" href="css/templatemo-style.css">
+        <link rel="stylesheet" href="css/lightbox.css">
+        <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="css/popup.css">
+        <link rel="stylesheet" href="css/normalize.min.css">
+        <link rel="stylesheet" href="css/animate.min.css">
+        
+
+        <link rel="stylesheet" href="scrollBar/jquery.mCustomScrollbar.css">
+        <link rel="stylesheet" href="./css/swiper.min.css">
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-103934659-2"></script>
+        <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-103934659-2');
+        </script>
+        <script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+     </head>
+
+<body>
+    <noscript>This browser does not support this website</noscript>
+    <div class="se-pre-con"></div>
+    <div id="popup">
+        <div class="popup-container" >
+            <span id="popup-close" onclick="closePopup()">
+                <img src="./img/close.svg" alt="">
+            </span>
+            <div id="popup-content">
+                
+            </div>
+
+        </div>
+    </div>
+    
+
+    <div class="parallax-content baner-content" id="home">
+      
+        <div class="container" style="padding: 0!important; height: 100vh">
+                <nav class="navbar navbar-inverse" role="navigation" style="border: none">
+                        <img src="./img/logo.png" alt="" class="logo">
+                    <div class="navbar-header">
+                        <button type="button" id="nav-toggle" class="navbar-toggle" data-toggle="collapse" data-target="#main-nav">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a href="#" class="navbar-brand scroll-top">
+                            <div class="row">
+                                <center>
+                                    <img src="./img/Tanho/group.png" style="margin-top: -10%; height: 122vh"> 
+                                </center>
+                            </div>
+                        </a>
+                    </div>
+                    <div id="main-nav" class="collapse navbar-collapse">
+                        <ul class="nav navbar-nav ">
+                            <li onclick="markActive('first')" class="first"><a href="#" class="scroll-top">Главная</a></li>
+                            <li onclick="markActive('second')" class="second"><a href="#" class="scroll-link" data-id="product" >Продукция</a></li>
+                            <li onclick="markActive('third')" class="third"><a href="#" class="scroll-link" data-id="about" >О нас</a></li>
+                            <li onclick="markActive('fourth')" class="fourth"><a href="#" class="scroll-link" data-id="map" >Контакты</a></li>
+                        </ul> 
+                    </div>
+                </nav>
+                
+                <div class="hero-slider" id="hero">
+                </div>
+
+            </div>
+            
+        </div>
+    
+
+    <section id="product">
+        <div class="content-wrapper">
+            <h2 class="catalog-header">
+                Каталог продукции
+            </h2>
+            <div class="row filter">
+                <div class="col-sm-12">
+                    <div class="sort hide-desk">
+                        <b> Филтьр:</b>                  
+                    </div>
+                    <div class="row filter-1" >
+                        <div class="sort hide-mobile col-sm-6 col-md-2">
+                            <b> Филтьр:</b>                  
+                        </div>
+                        <div class="col-sm-6 col-md-2 radioo">
+                                <label class="rad-container" >Кетчуп
+                                  <input type="radio" data-type="Ketchup" checked="checked" name="radio" onclick="filterSelection('Ketchup')">
+                                  <span class="checkmark"></span>
+                                </label>
+                        </div>                   
+                        <div class="col-sm-6 col-md-2 radioo">
+                                <label class="rad-container" >Майонез
+                                  <input type="radio" data-type="Mayonez" name="radio" onclick="filterSelection('Mayonez')">
+                                  <span class="checkmark"></span>
+                                </label>
+                        </div>                   
+                        <div class="col-sm-6 col-md-2 radioo" >
+                                <label class="rad-container" >Горчица
+                                  <input type="radio" data-type="Gorchitsa" name="radio" onclick="filterSelection('Gorchitsa')">
+                                  <span class="checkmark"></span>
+                                </label>
+                        </div> 
+                        <div class="col-sm-6 col-md-2 radioo">
+                            <label class="rad-container" >Макароны
+                              <input type="radio" data-type="Makaroni" name="radio" onclick="filterSelection('Makaroni')">
+                              <span class="checkmark"></span>
+                            </label>
+                                      
+                        </div>                                   
+                    </div>
+                </div>                                
+            </div>
+
+            </a>
+             <div id="product-swiper">
+            </div>
+    </section>
+
+    <div class="tabs-content" id="about">
+        <h1 class="Header aboutHeader" id="about-title">О Нас</h1>
+        <div class="aboutText" id="about-desc"></div>
+    </div>
+    <div id="map" style="position: relative;height: 100vh;">
+
+        <div class="contacts-container">
+            <div class="row flex-container" style="height: 100%;">
+                <div class="col-sm-9" style="padding: 20px 0 20px 20px">
+                    <h1 class="contacts contacts-header">Контакты</h1>
+                    <h4 class="contacts  contacts-h4">Адрес завода:</h4>
+                    <p class=" contacts contact-p">Узбекистан, Ташкентская область, Кибрайский район, поселок Янгиобод, ул. Жасорат 100
+                        <br/>Тел: 8 71 266 66 61
+                        </p>
+                    <h4 class=" contacts  contacts-h4">Адрес коммерческого офиса:</h4>
+                    <p class="contacts  contact-p">г. Ташкент, ул. Гулобод, д. 5/1
+                            <br/> Тел: 8 97 757 91 66
+                    </p>
+                    <div class="contacts">
+                        <a href="https://www.facebook.com/tanhoholding/" target="_blank">
+                            <img src="./img/facebook.svg" alt="">
+                        </a>
+                        <a href="https://www.instagram.com/tanho_uz/" target="_blank"><img src="./img/instagram.svg" alt=""></a>
+                        
+                        
+                    </div>
+                </div>
+                <div class="col-sm-3 flag">
+                    <span class="column_bar"></span>
+                    <img src="./img/flagcha.png" class="flagcha" style="width: 58px">
+                </div>
+            </div>
+
+            
+        </div>
+        <iframe class="big-map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d11271.618838543225!2d69.42318294072413!3d41.33410455027354!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDHCsDE5JzU4LjkiTiA2OcKwMjUnNDIuMyJF!5e0!3m2!1sru!2s!4v1573810566841!5m2!1sru!2s" width="100%" height="100%" frameborder="0" style="border:0; margin-top: -70vh;" class="iframe" allowfullscreen></iframe>
+    </div>
+
+    <footer>
+        
+            <div class="row" >
+                <div class="col-xs-12 col-sm-10 footer-nav"> 
+                        <ul class="nav navbar-nav dark-nav">
+                            <li onclick="markActive('first')" class="first"><a href="#" class="scroll-top">Главная</a></li>
+                            <li onclick="markActive('second')" class="second"><a href="#" class="scroll-link" data-id="product" >Продукция</a></li>
+                            <li onclick="markActive('third')" class="third"><a href="#" class="scroll-link" data-id="about" >О нас</a></li>
+                            <li onclick="markActive('fourth')" class="fourth"><a href="#" class="scroll-link" data-id="map" >Контакты</a></li>
+                        </ul>                  
+                </div>
+                <div class="col-xs-12 col-sm-2 contact-details">
+
+                        <p class="footer-text tel"><img src="./img/phone.svg" alt=""> 8 97 757 91 66</p>
+                        <p class="footer-text mail" style="color: #0d0f12"><img src="./img/email.svg"  alt=""> info@tanho.uz</p>
+                        
+
+                </div>
+                <iframe class="min-map col-xs-12 iframe" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d11271.618838543225!2d69.42318294072413!3d41.33410455027354!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDHCsDE5JzU4LjkiTiA2OcKwMjUnNDIuMyJF!5e0!3m2!1sru!2s!4v1573810566841!5m2!1sru!2s" width="100%" height="100%" frameborder="0" allowfullscreen></iframe>
+            </div>   
+        
+    </footer>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+    <script src="js/products.js"></script> 
+    <script src="./js/swiper.min.js"></script>   
+    <script src="js/bgimages.js"></script>
+    <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
+    <script src="./owlcarousel/owl.carousel.min.js"></script>
+    <script src="js/vendor/bootstrap.min.js"></script>
+    <script src="js/plugins.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/slider.js"></script>
+    <script src="js/language.js"></script>
+    <!-- <script src="scrollBar/jquery.mCustomScrollbar.concat.min.js"></script> -->
+    <script>
+        swiper1 = new Swiper('.main-banner', {
+			direction: 'horizontal',
+			pagination: {
+				el: '.swiper-pagination',
+				clickable: false
+			},
+			autoplay: {
+				delay: 5000
+			},
+			effect: 'coverflow',
+			coverflowEffect: {
+				rotate: 120,
+				slideShadows: false
+			},
+			breakpoints: {
+				640: {
+					direction: 'vertical'
+				}
+			}
+		});
+    </script>
+        
+
+    <script>
+	$(window).load(function() {
+		$(".se-pre-con").fadeIn("slow").fadeOut("slow");
+	});
+        
+    (function($){
+        $(window).on("load",function(){
+            $.mCustomScrollbar.defaults.theme="light-2"; //set "light-2" as the default theme
+
+            $(".demo-x").mCustomScrollbar({
+                axis:"x",
+                advanced:{autoExpandHorizontalScroll:true}
+            });
+            
+        });
+    })(jQuery);
+    </script>
+</body>
+</html>
