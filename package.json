@@ -1,0 +1,25 @@
+{
+  "name": "tanho-front",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "prismic-dom": "^2.1.0",
+    "prettier": "^1.18.2",
+    "prismic-javascript": "^2.1.5"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mj11rock/tancho.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mj11rock/tancho/issues"
+  },
+  "homepage": "https://github.com/mj11rock/tancho#readme"
+}
