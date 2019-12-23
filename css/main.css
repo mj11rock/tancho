@@ -1077,6 +1077,7 @@ p {
 }
 .modal {
   color: black;
+  font-size: 16px;
 }
 .modal-dialog {
   width: 60%;
