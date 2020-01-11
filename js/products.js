@@ -130,8 +130,8 @@ function filterSelection(el) {
                       <div class="halfWidth">
   
                               <h1 class="card-h1">${item.name}</h1> 
-                              <p class="card-p">
-                              ${trimText(item.description)} 
+                              <p class="card-p clampjs">
+                              ${item.description}
                               </p>
                               <div class="row">
                                   <div class="col-sm-12">
@@ -158,6 +158,11 @@ function filterSelection(el) {
         append(block, swiperContainer);
         append(swiperContainer, btnNext);
         append(swiperContainer, btnPrev);
+		
+		
+		 $clamp(div.querySelector('.clampjs'), {clamp: 3});
+		
+		
 
         swiper2 = new Swiper(".products-container", {
           slidesPerView: 1,

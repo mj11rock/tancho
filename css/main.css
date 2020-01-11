@@ -205,7 +205,14 @@ p {
 
 .card-p {
   font-size: 1em;
-  min-height: 100px;
+}
+
+.halfWidth:nth-child(2) {
+  padding-right: 24px;
+}
+
+.products-container .swiper-wrapper .swiper-slide:first-child {
+  padding-left: 24px;
 }
 
 #about {
@@ -221,7 +228,7 @@ p {
 .aboutHeader {
   color: #d7a948;
   font-size: 3.5em;
-  margin-left: 2%;
+  margin-left: 3%;
 }
 
 .aboutText {
@@ -271,10 +278,6 @@ p {
 
 .column_image {
   height: 70vh;
-}
-
-.flagcha {
-  margin-top: -2px;
 }
 
 /*footer */
@@ -1075,11 +1078,18 @@ p {
 #product-swiper {
   margin-top: 5%;
 }
+
+.modal-body {
+  height: 450px;
+  overflow-y: auto;
+}
 .modal {
   color: black;
+  font-size: 16px;
 }
 .modal-dialog {
   width: 60%;
+  overflow-y: initial !important;
 }
 .modal ul li {
   margin: 8px 0;
@@ -1090,18 +1100,8 @@ p {
   margin-bottom: -10px;
 }
 .more {
-  margin-top: 10px;
-  padding: 10px;
-  background-color: #da020b;
-  color: white;
-  text-decoration: none !important;
-  border-radius: 20px;
-}
-.more:hover {
+  display: inline;
   cursor: pointer;
-  text-decoration: none !important;
-  color: white;
-  background-color: #8f0307;
 }
 
 #myBtn {
@@ -1109,7 +1109,7 @@ p {
   position: fixed;
 
   bottom: 20px;
-  right: 30px;
+  right: 10px;
   z-index: 99;
   border: none;
   outline: none;
