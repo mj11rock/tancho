@@ -26,7 +26,6 @@ jQuery(document).ready(function($) {
       "background-position": "center calc(50% + " + st * 0.5 + "px)"
     });
   });
-
   $(".counter").each(function() {
     var $this = $(this),
       countTo = $this.attr("data-count");

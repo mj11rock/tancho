@@ -1075,11 +1075,18 @@ p {
 #product-swiper {
   margin-top: 5%;
 }
+
+.modal-body {
+  height: 450px;
+  overflow-y: auto;
+}
 .modal {
   color: black;
+  font-size: 16px;
 }
 .modal-dialog {
   width: 60%;
+  overflow-y: initial !important;
 }
 .modal ul li {
   margin: 8px 0;
@@ -1107,9 +1114,8 @@ p {
 #myBtn {
   display: none;
   position: fixed;
-
   bottom: 20px;
-  right: 30px;
+  right: 10px;
   z-index: 99;
   border: none;
   outline: none;
