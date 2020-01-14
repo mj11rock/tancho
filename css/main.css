@@ -137,7 +137,6 @@ p {
 .select {
   display: inline;
   margin-left: 20px;
-  width: 50%;
   color: #d7a948;
 }
 
@@ -159,9 +158,6 @@ p {
 
 .filter-2 .sortby {
   margin-left: 12px;
-}
-
-.radio {
 }
 
 .content {
@@ -244,7 +240,7 @@ p {
   width: 36vw;
   /* height: 70vh; */
   position: relative;
-  top: 10vh;
+  top: 2vh;
   right: 60px;
   float: right;
   background-color: white;
@@ -304,7 +300,6 @@ p {
   display: inline;
   position: relative;
   padding-left: 26px;
-  margin-bottom: -16px;
   cursor: pointer;
   font-size: 14px;
   -webkit-user-select: none;
@@ -392,10 +387,6 @@ p {
 
 .hide-desk {
   display: none;
-}
-
-.text-content {
-  /* width: 60%; */
 }
 
 .image-content {
@@ -543,10 +534,6 @@ p {
 
   .contacts-container {
     top: 11rem;
-  }
-
-  .column_image {
-    /*margin-left: 2rem;*/
   }
 
   .flagcha {
@@ -1107,6 +1094,7 @@ p {
 #myBtn {
   display: none;
   position: fixed;
+
   bottom: 20px;
   right: 10px;
   z-index: 99;

@@ -40,7 +40,7 @@ function trimText(txt) {
   if (screen <= 500) {
     return txt.trunc(120, true);
   }
-  return txt.trunc(120, true);
+  return txt.trunc(110, true);
 }
 
 function markRadioChecked(el) {
@@ -223,32 +223,24 @@ function filterSelection(el) {
         div.innerHTML = `  
                   <div class="inlineflex">
                       <div class="halfWidth gallery-img">
-                          <img src="${
-                            item.data.prod_img.url
-                          }" class="gallery-image">                                      
+                          <img src="${item.data.prod_img.url}" class="gallery-image">                                      
                       </div>
                       
                       <div class="halfWidth">
   
-                              <h1 class="card-h1">${
-                                item.data.prod_name[0].text
-                              }</h1> 
-                              <p class="card-p">
-                              ${trimText(item.data.description[0].text)} 
+                              <h1 class="card-h1">${item.data.prod_name[0].text}</h1> 
+                              <p class="card-p clampjs">
+                              ${item.data.description[0].text} 
                               </p>
-                              <div class="row">
+                              <div class="row mt-2">
                                   <div class="col-sm-12">
                                       <label>Масса:</label>
-                                      <h3 class="card-h3">${
-                                        item.data.width[0].text
-                                      } гр.</h3>    
+                                      <h3 class="card-h3">${item.data.width[0].text} гр.</h3>    
                                   </div>
                                   
                               </div>
                               <div class="primary-white-button">
-                                  <a class="scroll-link" data-id="gold" onclick="getProduct('${
-                                    item.id
-                                  }')">Подробнее</a>
+                                  <a class="scroll-link" data-id="gold" onclick="getProduct('${item.id}')">Подробнее</a>
                               </div>    
   
                       </div>
@@ -260,6 +252,8 @@ function filterSelection(el) {
         append(block, swiperContainer);
         append(swiperContainer, btnNext);
         append(swiperContainer, btnPrev);
+
+        $clamp(div.querySelector(".clampjs"), { clamp: 2 });
 
         swiper2 = new Swiper(".products-container", {
           slidesPerView: 1,
