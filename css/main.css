@@ -185,7 +185,7 @@ p {
 
 .gallery-image {
   /* width: 300px; */
-  height: 45vh;
+  height: 47vh;
 }
 
 .card-h1 {
@@ -204,9 +204,15 @@ p {
 }
 
 .halfWidth:nth-child(2) {
+  margin-top: 20%;
   padding-right: 24px;
 }
-
+@media screen and (max-width: 1900px) {
+  .halfWidth:nth-child(2) {
+    margin-top: 0;
+    padding-right: 24px;
+  }
+}
 .products-container .swiper-wrapper .swiper-slide:first-child {
   padding-left: 24px;
 }
@@ -228,13 +234,31 @@ p {
 }
 
 .aboutText {
-  font-size: 1.4em;
+  font-size: 1.8em;
   color: white;
   margin-left: 2%;
   margin-right: 2%;
   padding-bottom: 10px !important;
 }
 
+.modal {
+  text-align: center;
+}
+
+@media screen and (min-width: 768px) {
+  .modal:before {
+    display: inline-block;
+    vertical-align: middle;
+    content: " ";
+    height: 100%;
+  }
+}
+
+.modal-dialog {
+  display: inline-block;
+  text-align: left;
+  vertical-align: middle;
+}
 /*contacts*/
 .contacts-container {
   width: 36vw;
@@ -889,7 +913,7 @@ p {
   }
 
   .navbar {
-    margin-top: 10px !important;
+    margin: 30px !important;
   }
 }
 
@@ -929,7 +953,7 @@ p {
 
 @media screen and (min-width: 1600px) {
   .container {
-    width: 1170px !important;
+    width: 1730px !important;
   }
 }
 
@@ -970,7 +994,13 @@ p {
 
 .swiper-container-vertical > .swiper-pagination-bullets {
   left: 0px;
-  top: 125px !important;
+  top: 300px !important;
+}
+@media screen and (max-width: 1900px) {
+  .swiper-container-vertical > .swiper-pagination-bullets {
+    left: 0px;
+    top: 125px !important;
+  }
 }
 
 .swiper-pagination-bullet {
@@ -988,9 +1018,15 @@ p {
 }
 
 .text-content {
+  margin-top: 180px;
   width: 60%;
 }
-
+@media screen and (max-width: 1900px) {
+  .text-content {
+    margin-top: 0;
+    width: 60%;
+  }
+}
 .image-content {
   width: 40%;
 }
@@ -1002,10 +1038,17 @@ p {
   transition: 0.1s all ease-in;
 }
 
-.gallery-img {
-  width: 200px;
+/* .gallery-img img {
+  width: auto;
+  height: 400px;
+  padding: 0;
+} */
+.lenta {
+  margin-top: -10%;
+  height: 122vh;
+  width: auto;
+  cursor: auto;
 }
-
 .column_bar {
   width: 58px;
   height: 100%;
@@ -1113,6 +1156,6 @@ p {
 
 #map_wrapper {
   position: absolute;
-  height: 700px;
+  height: 100vh;
   width: 100%;
 }
