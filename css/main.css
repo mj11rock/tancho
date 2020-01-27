@@ -1159,3 +1159,19 @@ p {
   height: 100vh;
   width: 100%;
 }
+.dropdown-toggle img {
+  width: 20px;
+  height: 20px;
+  margin-top: -5px;
+}
+.dropdown-menu {
+  min-width: 50px !important;
+  left: -15px !important;
+}
+.dropdown-menu button {
+  padding: 0;
+  background-color: white;
+  border: 0;
+  text-align: center;
+  width: 100%;
+}

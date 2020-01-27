@@ -25,6 +25,14 @@
     <link rel="stylesheet" href="./css/swiper.min.css">
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script>
+        console.log(localStorage);
+        // const mainLang = localStorage.length > 0 ? localStorage.getItem('lang') : localStorage.setItem("lang", "ru");
+        const mainLang = localStorage.getItem('lang');
+        console.log("localStorage:" + localStorage);
+
+    </script>
+    <script src="https://unpkg.com/i18next/dist/umd/i18next.min.js"></script>
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-103934659-2"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
@@ -73,14 +81,38 @@
                 </div>
                 <div id="main-nav" class="collapse navbar-collapse">
                     <ul class="nav navbar-nav ">
-                        <li onclick="markActive('first')" class="first"><a href="#" class="scroll-top">Главная</a></li>
-                        <li onclick="markActive('second')" class="second"><a href="#" class="scroll-link"
-                                data-id="product">Продукция</a></li>
-                        <li onclick="markActive('third')" class="third"><a href="#" class="scroll-link"
-                                data-id="about">О нас</a></li>
-                        <li onclick="markActive('fourth')" class="fourth"><a href="#" class="scroll-link"
-                                data-id="map">Контакты</a></li>
+                        <li onclick="markActive('first')" class="first"><a href="#" class="scroll-top">
+                                <span data-hero="nav-text"></span>
+                            </a>
+                        </li>
+                        <li onclick="markActive('second')" class="second">
+                            <a href="#" class="scroll-link" data-id="product">
+                                <span data-hero="nav-text"></span>
+                            </a>
+                        </li>
+                        <li onclick="markActive('third')" class="third">
+                            <a href="#" class="scroll-link" data-id="about">
+                                <span data-hero="nav-text"></span>
+                            </a>
+                        </li>
+                        <li onclick="markActive('fourth')" class="fourth">
+                            <a href="#" class="scroll-link" data-id="map">
+                                <span data-hero="nav-text"></span>
+                            </a>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                                aria-haspopup="true" aria-expanded="false"><span><img src="./img/langIcon.png"
+                                        alt=""></span> <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><button onclick="i18next.changeLanguage('ru'); langChanged('uz-uz');"
+                                        id="main-lang">Рус</button></li>
+                                <li><button onclick="i18next.changeLanguage('uz'); langChanged('ru');"
+                                        id="second-lang">O'z</button></li>
+                            </ul>
+                        </li>
                     </ul>
+
                 </div>
             </nav>
             <div class="hero-slider" id="hero">
@@ -90,41 +122,43 @@
 
     <section id="product">
         <div class="content-wrapper">
-            <h2 class="catalog-header">
-                Каталог продукции
-            </h2>
+            <h2 class="catalog-header" data-title='title'></h2>
             <div class="row filter">
                 <div class="col-sm-12">
                     <div class="sort hide-desk">
-                        <b> Филтьр:</b>
+                        <b data-filter='filter'> </b>
                     </div>
                     <div class="row filter-1">
                         <div class="sort hide-mobile col-sm-6 col-md-2">
-                            <b> Филтьр:</b>
+                            <b data-filter='filter'></b>
                         </div>
                         <div class="col-sm-6 col-md-2 radioo">
-                            <label class="rad-container">Кетчуп
+                            <label class="rad-container">
+                                <span class="filter-name"></span>
                                 <input type="radio" data-type="Ketchup" checked="checked" name="radio"
                                     onclick="filterSelection('Ketchup')">
                                 <span class="checkmark"></span>
                             </label>
                         </div>
                         <div class="col-sm-6 col-md-2 radioo">
-                            <label class="rad-container">Майонез
+                            <label class="rad-container">
+                                <span class="filter-name"></span>
                                 <input type="radio" data-type="Mayonez" name="radio"
                                     onclick="filterSelection('Mayonez')">
                                 <span class="checkmark"></span>
                             </label>
                         </div>
                         <div class="col-sm-6 col-md-2 radioo">
-                            <label class="rad-container">Горчица
+                            <label class="rad-container">
+                                <span class="filter-name"></span>
                                 <input type="radio" data-type="Gorchitsa" name="radio"
                                     onclick="filterSelection('Gorchitsa')">
                                 <span class="checkmark"></span>
                             </label>
                         </div>
                         <div class="col-sm-6 col-md-2 radioo">
-                            <label class="rad-container">Макароны
+                            <label class="rad-container">
+                                <span class="filter-name"></span>
                                 <input type="radio" data-type="Makaroni" name="radio"
                                     onclick="filterSelection('Makaroni')">
                                 <span class="checkmark"></span>
@@ -138,33 +172,10 @@
     </section>
 
     <div class="tabs-content" id="about">
-        <h1 class="Header aboutHeader" id="about-title">О Нас</h1>
-        <div class="aboutText row" id="about-desc">
-            <div class="col-lg-12">
-                Уважаемый гость, в этом разделе мы с радостью хотим поделиться с Вами нашими планами на будущее.
-                <br />
-                <br />
-                В сентябре 2019 года в компании Tanho состоялась стратегическая сессия, в которой приняли участие её
-                руководители и ключевые менеджеры. Это дало нам возможность определить миссию, видение и ценности
-                компании, а также разработать дорожную карту до конца 2022 года.
-                <br />
-                <br />
-                К чему мы пришли?
-                <br />
-                <br />
-                Наша миссия: Мы привносим вкус к жизни, производя качественные и натуральные
-                продукты
-                питания.
-                <br />
-                <br />
-                Наше видение: Присутствовать на каждом столе, объединяя семью, друзей и близких.
-                <br />
-                <br />
-                Наши 5 ценностей: Доверие, командная сплочённость, забота, саморазвитие,
-                эффективность. <a class="more" data-toggle="modal" data-target="#description-modal">
-                    <br />
-                    Подробнее...
-                </a>
+        <h1 class="Header aboutHeader" id="about-title" data-title='title'></h1>
+        <div class="aboutText row">
+            <div class="col-lg-12" id="about-desc">
+
             </div>
 
             <div class="modal fade" id="description-modal" tabindex="-1" role="dialog"
@@ -178,91 +189,7 @@
                             <h3 class="modal-title text-dark" id="exampleModalLongTitle">О нас</h3>
                         </div>
                         <div class="modal-body ">
-                            <div class="row">
-                                <div class="col-lg-12 ">
-                                    Уважаемый гость, в этом разделе мы с радостью хотим поделиться с Вами нашими планами
-                                    на будущее.
-                                    <br />
-                                    <br />
-                                    В сентябре 2019 года в компании Tanho состоялась стратегическая сессия, в которой
-                                    приняли участие её
-                                    руководители и ключевые менеджеры. Это дало нам возможность определить миссию,
-                                    видение и ценности
-                                    компании, а также разработать дорожную карту до конца 2022 года.
-                                    <br />
-                                    <br />
-                                    К чему мы пришли?
-                                    <br />
-                                    <br />
-                                    Наша миссия: Мы привносим вкус к жизни, производя качественные и натуральные
-                                    продукты
-                                    питания.
-                                    <br />
-                                    <br />
-                                    Наше видение: Присутствовать на каждом столе, объединяя семью, друзей и близких.
-                                    <br />
-                                    <br />
-                                    Наши 5 ценностей: Доверие, командная сплочённость, забота, саморазвитие,
-                                    эффективность.
-                                    <ul>
-                                        <li>
-                                            Наша миссия: добавить жизни вкуса, производя качественные и натуральные
-                                            продукты
-                                            питания.
-
-                                        </li>
-                                        <li>
-                                            Наше видение: присутствовать в каждом доме, объединяя семью, друзей и
-                                            близких.
-
-                                        </li>
-                                        <li>
-                                            5 основных ценностей: доверие, сплочённость команды, забота, саморазвитие,
-                                            эффективность.
-
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="col-lg-12">
-                                    <h3 class="text-center"><strong>Курс на ближайшие годы</strong></h3>
-                                    <ul>
-                                        <h4 class="text-center">10 ключевых задач, ради которых ежедневно приходим на
-                                            работу:</h4>
-                                        <li>1 Построить эффективную систему дистрибьюции (сделать продукцию Tanho
-                                            доступной всем жителям, от Андижана до Нукуса и от Термеза до Учкудука);
-                                        </li>
-                                        <li>2 Провести оптимизацию и модернизацию логистики (предоставить гарантию на
-                                            правильное хранение и своевременную доставку продукции Tanho до «Вашего»
-                                            магазина);</li>
-                                        <li>3 Провести оптимизацию и модернизацию производства (обеспечить Вас
-                                            натуральным продуктом в удобной упаковке, произведенным по современному и
-                                            безопасному методу);</li>
-                                        <li>4 Внедрить функцию HR (создать штат из компетентных и целеустремлённых
-                                            сотрудников, способных принимать эффективные решения для популяризации
-                                            продукции Tanho в нашей стране);</li>
-                                        <li>5 Внедрить функцию торгового маркетинга (запускать интересные акции и
-                                            инициативы как способы выражения благодарности Вам за доверие и лояльность);
-                                        </li>
-                                        <li>6 Внедрить функцию бренд маркетинга и PR (продолжать максимально прозрачную
-                                            коммуникацию со своей аудиторией и делиться новостями, чтобы всегда быть с
-                                            Вами на связи);</li>
-                                        <li>7 Выстроить систему планирования (вне зависимости от сроков импорта
-                                            ингредиентов, своевременно доставлять продукцию Tanho до «Вашего» магазина);
-                                        </li>
-                                        <li>8 Внедрить стратегически важные финансовые инструменты (правильно
-                                            распределять бюджет в нашей большой семье, то есть внутри компании);</li>
-                                        <li>9 Выход на экспортные рынки (объединять семью, друзей и близких как в нашей
-                                            гостеприимной стране, так и за её пределами); </li>
-                                        <li>10 Запуск новых продуктовых направлений (расширять линейку вкусов, чтобы
-                                            радовать Вас и другими натуральными продуктами нашего производства).</li>
-                                    </ul>
-                                </div>
-                                <h4 class="col-lg-12 text-center">
-
-                                    Спасибо что зашли к нам в гости. Нам хочется верить, что у Вас хватило терпения
-                                    дочитать информацию о наших планах до конца.
-
-                                </h4>
+                            <div class="row" id="about-modal">
                             </div>
                         </div>
                     </div>
@@ -274,26 +201,8 @@
 
         <div class="contacts-container">
             <div class="row flex-container" style="height: 100%;">
-                <div class="col-sm-9" style="padding: 20px 0 20px 20px">
-                    <h1 class="contacts contacts-header">Контакты</h1>
-                    <h4 class="contacts  contacts-h4">Адрес завода:</h4>
-                    <p class=" contacts contact-p">Узбекистан, Ташкентская область, Кибрайский район, поселок Янгиобод,
-                        ул. Жасорат 100
-                        <br />Тел: 8 71 266 66 61
-                        <br /> Почта: info@tanho.uz
-                    </p>
-                    <h4 class=" contacts  contacts-h4">Адрес коммерческого офиса:</h4>
-                    <p class="contacts  contact-p">г. Ташкент, ул. Гулобод, д. 5/1
-                        <br /> Тел: 8 97 757 91 66
-                        <br /> Почта: info@tanho.uz
-                    </p>
-                    <div class="contacts">
-                        <a href="https://www.facebook.com/tanhoholding/" target="_blank">
-                            <img src="./img/facebook.svg" alt="">
-                        </a>
-                        <a href="https://www.instagram.com/tanho_uz/" target="_blank"><img src="./img/instagram.svg"
-                                alt=""></a>
-                    </div>
+                <div class="col-sm-9" style="padding: 20px 0 20px 20px" id="address-content">
+
                 </div>
                 <div class="col-sm-3 flag">
                     <span class="column_bar">
@@ -302,8 +211,6 @@
                     <img src="./img/Tanho/group_bot_flagcha.png" class="flagcha" style="width: 58px; margin-top:-6px;">
                 </div>
             </div>
-
-
         </div>
         <div id="map_wrapper" class="big-map">
             <div id="map_canvas" class="mapping "></div>
@@ -318,13 +225,27 @@
         <div class="row">
             <div class="col-xs-12 col-sm-10 footer-nav">
                 <ul class="nav navbar-nav dark-nav">
-                    <li onclick="markActive('first')" class="first"><a href="#" class="scroll-top">Главная</a></li>
-                    <li onclick="markActive('second')" class="second"><a href="#" class="scroll-link"
-                            data-id="product">Продукция</a></li>
-                    <li onclick="markActive('third')" class="third"><a href="#" class="scroll-link" data-id="about">О
-                            нас</a></li>
-                    <li onclick="markActive('fourth')" class="fourth"><a href="#" class="scroll-link"
-                            data-id="map">Контакты</a></li>
+                    <li onclick="markActive('first')" class="first">
+                        <a href="#" class="scroll-top">
+                            <span class="foot-nav"></span>
+                        </a>
+                    </li>
+                    <li onclick="markActive('second')" class="second">
+                        <a href="#" class="scroll-link" data-id="product">
+                            <span class="foot-nav"></span>
+
+                        </a>
+                    </li>
+                    <li onclick="markActive('third')" class="third">
+                        <a href="#" class="scroll-link" data-id="about">
+                            <span class="foot-nav"></span>
+                        </a>
+                    </li>
+                    <li onclick="markActive('fourth')" class="fourth">
+                        <a href="#" class="scroll-link" data-id="map">
+                            <span class="foot-nav"></span>
+                        </a>
+                    </li>
                 </ul>
             </div>
             <div class="col-xs-12 col-sm-2 contact-details">
@@ -392,6 +313,7 @@
         //     });
         // })(jQuery);
     </script>
+    <script src="./js/translate.js"></script>
 
 </body>
 

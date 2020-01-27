@@ -3,13 +3,17 @@ const apiToken =
 const apiUrl = "https://tancho.cdn.prismic.io/api/v2";
 const prismic = PrismicJS.api(apiUrl, { accessToken: apiToken });
 
+// let lang = localStorage.getItem("lang");
+// const lang = mainLang;
+// console.log(lang);
 //*helper functions
 function createNode(element) {
   return document.createElement(element);
 }
 
 function append(parent, el) {
-  return parent.appendChild(el);
+  result = parent.appendChild(el);
+  return result;
 }
 
 function prepend(parent, el) {
@@ -22,6 +26,12 @@ function closePopup() {
   popup.style.display = "none";
   container.className = "popup-container";
 }
+
+// function langChanged(lang) {
+//   console.log(lang);
+//   localStorage.setItem("lang", lang);
+//   location.reload();
+// }
 
 String.prototype.trunc = function(n, useWordBoundary) {
   if (this.length <= n) {
@@ -56,7 +66,10 @@ function markRadioChecked(el) {
 //*getting data of background images from api
 prismic
   .then(api => {
-    return api.query(PrismicJS.Predicates.at("document.type", "bgimages"));
+    return api.query(PrismicJS.Predicates.at("document.type", "bgimages"), {
+      pageSize: 4
+      // lang: localStorage.getItem("lang")
+    });
   })
   .then(response => {
     // console.log(response.results);
@@ -72,10 +85,19 @@ function getProduct(id) {
     container = document.querySelector(".popup-container");
   prismic
     .then(api => {
-      return api.query(PrismicJS.Predicates.at("document.type", "product"));
+      console.log("===API===");
+      return api.query(PrismicJS.Predicates.at("document.type", "product"), {
+        pageSize: 80
+        // lang: localStorage.getItem("lang")
+      });
     })
     .then(response => {
+      console.log("===Response===");
+      console.log(response);
+      console.log("===Response end===");
       var data = response.results.filter(item => {
+        console.log("Item id = " + item.id);
+        console.log("Product id = " + id);
         return item.id == id ? item : "";
       });
       data = data[0].data;
@@ -87,25 +109,25 @@ function getProduct(id) {
         content.innerHTML = " ";
       }
       div.innerHTML = `
-      <div class="popup-media">
-        <img src="${data.prod_img.url}" class="popup-image">
+    <div class="popup-media">
+      <img src="${data.prod_img.url}" class="popup-image">
+    </div>
+      
+    <div class="popup-desc">
+      <h1 class="card-h1">${data.prod_name[0].text}</h1> 
+      <p class="card-p">
+      ${data.description[0].text} 
+      </p>
+      <div class="row">
+          <div class="col-sm-6">
+              <label>Масса:</label>
+              <h3 class="card-h3">${
+                data.width[0].text ? data.width[0].text : " - "
+              }  гр.</h3>    
+          </div>
+          
       </div>
-        
-      <div class="popup-desc">
-        <h1 class="card-h1">${data.prod_name[0].text}</h1> 
-        <p class="card-p">
-        ${data.description[0].text} 
-        </p>
-        <div class="row">
-            <div class="col-sm-6">
-                <label>Масса:</label>
-                <h3 class="card-h3">${
-                  data.width[0].text ? data.width[0].text : " - "
-                }  гр.</h3>    
-            </div>
-            
-        </div>
-      </div>`;
+    </div>`;
 
       append(content, div);
       div.className = "popup-item";
@@ -120,7 +142,10 @@ let swiper1;
 
 prismic
   .then(api => {
-    return api.query(PrismicJS.Predicates.at("document.type", "slider"));
+    return api.query(PrismicJS.Predicates.at("document.type", "slider"), {
+      pageSize: 4
+      // lang: localStorage.getItem("lang")
+    });
   })
   .then(response => {
     var data = response.results;
@@ -141,21 +166,21 @@ prismic
       bannerPagination.className = "swiper-pagination";
 
       sliderItem.innerHTML = `
-        <div class="slide-item">
-            <div class="text-content">
-                <h2 class="starter">${slider.name[0].text}</h2>
-                <p class="startert">
-                    ${slider.description[0].text} 
-                </p>                                            
-            </div>
-            <div class="image-content">
-                <img src="${slider.img.url}" class="product-img">
-                <div class="primary-blue-button">
-                    <a href="#" class="scroll-link" onclick="filterSelection('${slider.type[0].text}'); scrollToID('#product', 750);" data-id="product" style="float: right;width: 100%;">Перейти в каталог</a>
-                </div>
-            </div>
-        </div> 
-        `;
+      <div class="slide-item">
+          <div class="text-content">
+              <h2 class="starter">${slider.name[0].text}</h2>
+              <p class="startert">
+                  ${slider.description[0].text} 
+              </p>                                            
+          </div>
+          <div class="image-content">
+              <img src="${slider.img.url}" class="product-img">
+              <div class="primary-blue-button">
+                  <a href="#" class="scroll-link" onclick="filterSelection('${slider.type[0].text}'); scrollToID('#product', 750);" data-id="product" style="float: right;width: 100%;">Перейти в каталог</a>
+              </div>
+          </div>
+      </div> 
+      `;
       append(bannerWrapper, sliderItem);
       append(bannerContainer, bannerWrapper);
       append(banner, bannerContainer);
@@ -198,21 +223,30 @@ function filterSelection(el) {
 
   prismic
     .then(api => {
-      return api.query(PrismicJS.Predicates.at("document.type", "product"));
+      return api.query(PrismicJS.Predicates.at("document.type", "product"), {
+        pageSize: 80
+        // lang: localStorage.getItem("lang")
+      });
     })
     .then(response => {
+      console.log("=========response=========");
+      console.log(response);
       var filter = response.results.filter(item => {
         return item.data.type[0].text == el;
       });
 
+      console.log("==========filter==========");
+      console.log(filter);
       let block = document.getElementById("product-swiper"),
         swiperContainer = createNode("div"),
         swiperWrapper = createNode("div"),
         btnNext = createNode("div"),
         btnPrev = createNode("div");
 
+      var times = 0;
       filter.map(item => {
         let div = createNode("div");
+        // console.log("Times count:" + times++);
         // console.log(item);
         swiperContainer.className = "swiper-container products-container";
         swiperWrapper.className = "swiper-wrapper";
@@ -221,37 +255,38 @@ function filterSelection(el) {
         btnPrev.className = "swiper-button-prev";
 
         div.innerHTML = `  
-                  <div class="inlineflex">
-                      <div class="halfWidth gallery-img">
-                          <img src="${item.data.prod_img.url}" class="gallery-image">                                      
-                      </div>
-                      
-                      <div class="halfWidth">
-  
-                              <h1 class="card-h1">${item.data.prod_name[0].text}</h1> 
-                              <p class="card-p clampjs">
-                              ${item.data.description[0].text} 
-                              </p>
-                              <div class="row mt-2">
-                                  <div class="col-sm-12">
-                                      <label>Масса:</label>
-                                      <h3 class="card-h3">${item.data.width[0].text} гр.</h3>    
-                                  </div>
-                                  
-                              </div>
-                              <div class="primary-white-button">
-                                  <a class="scroll-link" data-id="gold" onclick="getProduct('${item.id}')">Подробнее</a>
-                              </div>    
-  
-                      </div>
-                  </div>
-              `;
+                <div class="inlineflex">
+                    <div class="halfWidth gallery-img">
+                        <img src="${item.data.prod_img.url}" class="gallery-image">                                      
+                    </div>
+                    
+                    <div class="halfWidth">
+
+                            <h1 class="card-h1">${item.data.prod_name[0].text}</h1> 
+                            <p class="card-p clampjs">
+                            ${item.data.description[0].text} 
+                            </p>
+                            <div class="row mt-2">
+                                <div class="col-sm-12">
+                                    <label>Масса:</label>
+                                    <h3 class="card-h3">${item.data.width[0].text} гр.</h3>    
+                                </div>
+                                
+                            </div>
+                            <div class="primary-white-button">
+                                <a class="scroll-link" data-id="gold" onclick="getProduct('${item.id}')">Подробнее</a>
+                            </div>    
+
+                    </div>
+                </div>
+            `;
+
         div.setAttribute("data-product", item.id);
         append(swiperWrapper, div);
         append(swiperContainer, swiperWrapper);
-        append(block, swiperContainer);
         append(swiperContainer, btnNext);
         append(swiperContainer, btnPrev);
+        append(block, swiperContainer);
 
         $clamp(div.querySelector(".clampjs"), { clamp: 2 });
 
