@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="ru">
 
 <head>
 
@@ -25,13 +25,13 @@
     <link rel="stylesheet" href="./css/swiper.min.css">
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script>
+    <!-- <script>
         console.log(localStorage);
         // const mainLang = localStorage.length > 0 ? localStorage.getItem('lang') : localStorage.setItem("lang", "ru");
         const mainLang = localStorage.getItem('lang');
         console.log("localStorage:" + localStorage);
 
-    </script>
+    </script> -->
     <script src="https://unpkg.com/i18next/dist/umd/i18next.min.js"></script>
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-103934659-2"></script>
     <script>
@@ -105,9 +105,9 @@
                                 aria-haspopup="true" aria-expanded="false"><span><img src="./img/langIcon.png"
                                         alt=""></span> <span class="caret"></span></a>
                             <ul class="dropdown-menu">
-                                <li><button onclick="i18next.changeLanguage('ru'); langChanged('uz-uz');"
+                                <li><button onclick="i18next.changeLanguage('ru'); changeLng('ru');"
                                         id="main-lang">Рус</button></li>
-                                <li><button onclick="i18next.changeLanguage('uz'); langChanged('ru');"
+                                <li><button onclick="i18next.changeLanguage('uz-uz'); changeLng('uz-uz');"
                                         id="second-lang">O'z</button></li>
                             </ul>
                         </li>
@@ -168,7 +168,13 @@
                 </div>
             </div>
             </a>
-            <div id="product-swiper"></div>
+            <div id="product-swiper">
+                <div class="swiper-container products-container">
+                    <div class="swiper-wrapper"></div>
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
+                </div>
+            </div>
     </section>
 
     <div class="tabs-content" id="about">

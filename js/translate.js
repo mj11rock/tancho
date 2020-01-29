@@ -1,10 +1,11 @@
 // let currentLang = localStorage.getItem("lang");
-let currentLang = localStorage.getItem("lang") || "ru";
+// let currentLang = localStorage.getItem("lang") || "ru";
+let mainLang = localStorage.getItem("lang") || "ru";
 
 //* all translated texts
 i18next.init(
   {
-    lng: currentLang,
+    lng: mainLang,
     debug: false,
     resources: {
       ru: {
@@ -313,19 +314,26 @@ function updateContent() {
 
 //* function handels language changing
 function changeLng(lng) {
-  // localStorage.setItem(mainLang);
-  // console.log("mainLang: " + mainLang);
+  console.log(lng);
+  localStorage.setItem("lang", lng);
   i18next.changeLanguage(lng);
 }
 
 //* calling content filling after language changed
+
 i18next.on("languageChanged", () => {
-  var currentLang = localStorage.getItem("lang");
+  // console.log(lng);
+  // updateContent();
 
-  //* updating local language
-  // currentLang === "ru"
-  //   ? localStorage.setItem("lang", "uz-uz")
-  //   : localStorage.setItem("lang", "ru");
+  const windowReload = new Promise((resolve, reject) => {
+    resolve(window.location.reload());
+  });
 
-  updateContent();
+  windowReload.then(() => {
+    setTimeout(() => {
+      updateContent();
+    }, 3000);
+  });
 });
+
+//change language button
